@@ -1,0 +1,12 @@
+Numpy
+pandas
+scikit-learn
+nltk
+pickle
+streamlit
+pandas: a powerful data manipulation library that is essential for working with dataframes
+numpy; a library for numerical computations that provides support  for large,multi-dimensional arrays and matrices
+scikit-learn; a library for machine learning that includes tools  for model fitting,data preprocessing and evaluation metrics(likeTfidVectorizer and cosine_similarity).
+nltk; the natural language toolkit, useful for text processing tasks like tokenization and removing stopwords.
+pickles; this is optional and only needed if you are using python 3.7 or older and want to use the pickle module. if you are using python 3.8 or newer, the built-in pickle should suffice.
+streamlit; the main library for creating web apps
