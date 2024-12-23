@@ -1,57 +1,73 @@
-Job Recommendation System
-This project is a Job Recommendation System developed as my second project during an ML internship at EZITECH. The purpose of this project is to recommend jobs based on a selected job title using machine learning techniques such as TF-IDF and Cosine Similarity.
 
-Table of Contents
-Project Description
-Dataset
-Technologies Used
-Installation
-Project Structure
-Steps to Run
-How It Works
-Project Workflow
-Acknowledgements
-Project Description
-The Job Recommendation System recommends similar job titles based on the job title provided by the user. This recommendation is based on the similarity between job descriptions, titles, and positions using a machine learning-based similarity measure. The recommendation system uses TF-IDF (Term Frequency-Inverse Document Frequency) to transform the textual data into numerical features and Cosine Similarity to find similar jobs.
+# Job Recommendation System
 
-Dataset
-The dataset used in this project contains the following fields:
+## Project Overview
+This project is a **Job Recommendation System** developed during my machine learning internship at EZITECH. The system suggests similar job titles based on a user-provided job title using machine learning techniques such as **TF-IDF** (Term Frequency-Inverse Document Frequency) and **Cosine Similarity**. The goal is to recommend jobs that closely match the user's job title by analyzing the similarity between job descriptions, titles, and positions.
 
-Job Description: A detailed description of the job.
-Title: The title of the job.
-Position: The job position or category.
-This dataset was cleaned and preprocessed to make it suitable for building a recommendation model.
+---
 
-Technologies Used
-Python: Primary programming language.
-Streamlit: Used to create a web-based interface for the recommendation system.
-Pandas: For data manipulation and analysis.
-Scikit-learn: To compute TF-IDF and cosine similarity.
-Pickle: To save and load the preprocessed data.
-Jupyter Notebook: For data preprocessing and initial model development.
-Installation
-To get started with the project, follow the steps below:
+## Table of Contents
+1. [Project Description](#project-description)
+2. [Dataset](#dataset)
+3. [Technologies Used](#technologies-used)
+4. [Installation](#installation)
+5. [Project Structure](#project-structure)
+6. [Steps to Run](#steps-to-run)
+7. [How It Works](#how-it-works)
+8. [Project Workflow](#project-workflow)
+9. [Acknowledgements](#acknowledgements)
 
-Prerequisites
-Python 3.7 or higher
-Recommended to create a virtual environment.
-Install Required Packages
-Create a requirements.txt file in your project folder and include the following dependencies:
+---
 
-plaintext
-Copy code
-streamlit
-pandas
-scikit-learn
-pickle5
-Use the following command to install the packages:
+## Project Description
+The **Job Recommendation System** uses natural language processing (NLP) techniques to recommend jobs that are similar to a given job title. By applying **TF-IDF** for feature extraction and **Cosine Similarity** for calculating the similarity between job titles, the system provides relevant job recommendations based on textual data. The system's interactive interface is built using **Streamlit**, allowing users to easily query the model.
 
-bash
-Copy code
-pip install -r requirements.txt
-Project Structure
-plaintext
-Copy code
+---
+
+## Dataset
+The dataset used in this project contains job data with the following columns:
+- **Job Description**: A detailed description of the job responsibilities.
+- **Title**: The job title.
+- **Position**: The job position or category.
+
+The dataset was preprocessed to clean and structure the text, making it ready for analysis and recommendation.
+
+---
+
+## Technologies Used
+- **Python**: The primary programming language for this project.
+- **Streamlit**: For building the interactive web application.
+- **Pandas**: For data manipulation and processing.
+- **Scikit-learn**: For implementing the TF-IDF vectorizer and cosine similarity computation.
+- **Pickle**: To save and load preprocessed data and model outputs.
+- **Jupyter Notebook**: For initial data preprocessing and experimentation.
+
+---
+
+## Installation
+### Prerequisites
+- **Python 3.7** or higher is required.
+- It's recommended to use a virtual environment for managing dependencies.
+
+### Install Required Packages
+1. Create a `requirements.txt` file containing:
+    ```
+    streamlit
+    pandas
+    scikit-learn
+    pickle5
+    ```
+
+2. Install dependencies using pip:
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+---
+
+## Project Structure
+The project directory is organized as follows:
+```
 job-recommendation-system/
 │
 ├── app.py                  # Main Streamlit app for job recommendation
@@ -62,54 +78,71 @@ job-recommendation-system/
 ├── README.md               # Project readme file (this file)
 ├── requirements.txt        # Required packages
 └── .gitignore              # Git ignore file (to exclude unnecessary files)
-Steps to Run
-Data Preprocessing:
+```
 
-Loaded the dataset using Pandas.
-Removed special characters, cleaned the text, and removed stop words.
-Combined relevant columns (Job Description, Title, and Position) into a single column called clean_text.
-Feature Extraction:
+---
 
-Used TF-IDF Vectorizer from scikit-learn to convert the cleaned text into numerical vectors.
-Computed Cosine Similarity between job descriptions to identify similar jobs.
-Model Persistence:
+## Steps to Run
+1. **Data Preprocessing**:
+    - Loaded the dataset using Pandas.
+    - Cleaned text by removing special characters, stop words, and irrelevant information.
+    - Combined relevant columns (Job Description, Title, and Position) into a single `clean_text` column for further processing.
 
-Saved the preprocessed data (df.pkl) and the similarity matrix (similarity.pkl) using the pickle library.
-Building the Streamlit Web App:
+2. **Feature Extraction**:
+    - Used **TF-IDF** to convert the cleaned text data into numerical vectors.
+    - Calculated the **Cosine Similarity** between job descriptions to identify similar jobs.
 
-Created a Streamlit web interface using app.py.
-Allowed users to select a job title from a dropdown menu.
-Displayed similar job titles using the recommendation function.
-How to Run the Project
-Start the Streamlit App:
+3. **Model Persistence**:
+    - Saved the processed data and similarity matrix using **Pickle** for efficient loading and prediction.
 
-bash
-Copy code
-streamlit run app.py
-Access the App:
+4. **Building the Streamlit Web App**:
+    - Created an interactive user interface using **Streamlit** to display job recommendations based on user input.
 
-Open your browser and navigate to http://localhost:8501.
-How It Works
-TF-IDF Vectorizer: Transforms job descriptions into numerical vectors by assigning importance to terms based on their frequency and uniqueness within the dataset.
-Cosine Similarity: Measures the similarity between job descriptions by computing the cosine of the angle between their vectors.
-Recommendation System: The system retrieves the top 20 similar job titles based on the cosine similarity scores.
-Project Workflow
-Data Preprocessing:
+---
 
-Imported the dataset using pandas.
-Cleaned the data by removing unnecessary characters and stop words.
-Tokenized the cleaned text.
-Feature Extraction:
+## How to Run the Project
+1. **Start the Streamlit App**:
+    ```bash
+    streamlit run app.py
+    ```
 
-Utilized TfidfVectorizer to convert text to numerical vectors.
-Computed a similarity matrix using cosine_similarity.
-Streamlit Development:
+2. **Access the App**:
+    - Open your browser and navigate to [http://localhost:8501](http://localhost:8501) to interact with the job recommendation system.
 
-Developed an interactive web interface using Streamlit.
-Displayed job recommendations based on user input.
-Debugging and Error Fixes:
+---
 
-Handled various edge cases like empty inputs and mismatched data.
-Fixed potential data type errors by standardizing input and cleaned data.
-Acknowledgements
-This project was developed as my second machine learning project during the ML internship at EZITECH. Special thanks to the EZITECH team for their guidance and support throughout this project.
+## How It Works
+1. **TF-IDF Vectorizer**: 
+    - Converts job descriptions into numerical vectors, capturing the importance of each term based on its frequency and uniqueness across the dataset.
+
+2. **Cosine Similarity**: 
+    - Computes the similarity between job descriptions by measuring the cosine of the angle between their TF-IDF vectors. The smaller the angle, the more similar the jobs are.
+
+3. **Recommendation System**: 
+    - The system retrieves the top 20 similar job titles based on cosine similarity, providing the user with relevant job recommendations.
+
+---
+
+## Project Workflow
+1. **Data Preprocessing**: 
+    - Imported the dataset and cleaned the text by removing unnecessary characters, stop words, and tokenized the cleaned text.
+
+2. **Feature Extraction**: 
+    - Used **TF-IDF Vectorizer** to transform the text into numerical vectors.
+    - Created a **cosine similarity matrix** to find similar job descriptions.
+
+3. **Streamlit Development**: 
+    - Developed an interactive web interface using Streamlit to allow users to select a job title and get similar job recommendations.
+
+4. **Debugging and Error Fixes**: 
+    - Handled edge cases like empty inputs and data inconsistencies.
+    - Fixed issues related to data types and standardized input and output formats.
+
+---
+
+## Acknowledgements
+This project was developed as part of my machine learning internship at **EZITECH**. Special thanks to the **EZITECH** team for their support and guidance throughout this project.
+
+---
+
+This **Job Recommendation System** project efficiently showcases how **TF-IDF** and **Cosine Similarity** can be used in conjunction to recommend similar job titles. The project demonstrates practical applications of machine learning for real-world problems and offers a user-friendly interface to make job recommendations accessible to anyone.
